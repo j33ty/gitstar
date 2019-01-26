@@ -41,6 +41,7 @@ create_commit() {
 	git commit --date="$1 $hour:$minute:$second" -m "$2 on $1" >/dev/null
 }
 
+# run_gitstar runs loop over time and creates commits
 run_gitstar() {
 	mkdir gitsploit; cd gitsploit
 	git init
@@ -66,6 +67,7 @@ run_gitstar() {
 	done
 }
 
+# cleanup envs and files for previous commit and create a new commit
 cleanup() {
 	printf "\nUnsetting Vars and Cleaning up!"
 	unset GIT_COMMITTER_DATE
