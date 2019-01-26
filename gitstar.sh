@@ -4,6 +4,7 @@ set -e
 git_user_name="username"
 git_user_email="email@email.com"
 start_date="2018-02-21" # Y-m-d
+end_date=$(date '+%Y-%m-%d') # Today
 
 # weekday rules
 weekday_commit_min=0
@@ -47,7 +48,6 @@ run_gitstar() {
 	git init
 	git config user.name $git_user_name
 	git config user.email $git_user_email
-	local end_date=$(date '+%Y-%m-%d')
 	local commit_date=$start_date
 	local counter=1
 	while [ "$commit_date" != $end_date ]; do
