@@ -3,7 +3,7 @@ set -e
 
 git_user_name="username"
 git_user_email="email@email.com"
-start_date="2018-02-21" # Year-Month-Day
+start_date="2018-02-21" # Y-m-d
 
 # weekday rules
 weekday_commit_min=0
@@ -29,7 +29,7 @@ get_random_num() {
 	fi
 }
 
-# create_commit $Year-Month-Day #Count
+# create_commit $Y-m-d $Count
 create_commit() {
 	echo "$2 on $1" >> commit.md
 	local hour=$(get_random_num 10 20)
@@ -41,7 +41,7 @@ create_commit() {
 	git commit --date="$1 $hour:$minute:$second" -m "$2 on $1" >/dev/null
 }
 
-run_gitsploit() {
+run_gitstar() {
 	mkdir gitsploit; cd gitsploit
 	git init
 	git config user.name $git_user_name
@@ -82,7 +82,7 @@ on_exit() {
 	printf "\nDone making you a Gitstar! Now, Set your remote repo and Push the repo using 'git push origin master'"
 }
 
-run_gitsploit
+run_gitstar
 cleanup
 
 trap on_err ERR
